@@ -74,6 +74,62 @@ void insertionAtEnd(Node *&head, int val)
     newNode->prev = temp;
 };
 
+void insertionAtSpecificPosition(int newData, int pos, Node *&head)
+{
+
+    Node *newNode = new Node(newData);
+
+    if (pos < 1)
+    {
+        cout << "invalid Position" << endl;
+        return;
+    }
+
+    // case 1
+    if (pos == 1)
+    {
+        if (head == nullptr)
+        {
+            cout << "list is emtpy, creating new list.." << endl;
+            head = newNode;
+            return;
+        }
+        else
+        {
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
+        }
+    }
+
+    // case 2
+    if (pos > 1)
+    {
+
+        Node *temp = head;
+        for (int i = 1; i < pos - 1; i++)
+        {
+            temp = temp->next;
+        }
+        // case 3
+
+        if (temp == nullptr)
+        {
+            cout << "invalid position" << endl;
+            return;
+        }
+
+        newNode->next = temp->next;
+
+        if (temp->next != nullptr)
+        {
+            temp->next->prev = newNode;
+            newNode->prev = temp;
+            temp->next = newNode;
+        }
+    }
+};
+
 int main()
 {
 
