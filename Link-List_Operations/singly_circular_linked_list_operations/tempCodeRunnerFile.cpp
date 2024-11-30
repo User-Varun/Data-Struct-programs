@@ -1,0 +1,2 @@
+   // deletionAtBeginning(head);
+    // deletionAtEnd(head);
