@@ -36,6 +36,7 @@ void traverse(Node *&head)
 
 int main()
 {
+
     cout << "Enter the data you want in your first Node: ";
     int input;
     cin >> input;
